@@ -3,15 +3,19 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>沖繩，衝衝衝｜2026 家族旅行</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{--ink:#19333b;--sea:#087f8c;--sky:#dff6f7;--sand:#fff8e8;--coral:#ee765c;--muted:#60757b;--line:#d7e5e5;--white:#fff}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC",sans-serif;color:var(--ink);background:#f5faf9;line-height:1.65}header{background:linear-gradient(135deg,#063f52,#0795a0);color:#fff;padding:42px 20px 34px}.hero{max-width:1000px;margin:auto}.eyebrow{letter-spacing:.12em;font-size:.82rem;opacity:.8}.hero h1{font-size:clamp(2rem,6vw,3.8rem);line-height:1.1;margin:.35rem 0}.summary{max-width:760px;font-size:1.05rem}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.chip{background:#ffffff20;border:1px solid #ffffff55;padding:5px 11px;border-radius:99px;font-size:.9rem}main{max-width:1000px;margin:26px auto 70px;padding:0 16px}.alert{background:var(--sand);border-left:5px solid #e9af38;padding:16px 18px;border-radius:10px;margin:20px 0}.nav{display:flex;gap:8px;overflow:auto;padding:5px 0 16px;position:sticky;top:0;background:#f5faf9eF;backdrop-filter:blur(10px);z-index:3}.nav a{white-space:nowrap;text-decoration:none;color:var(--sea);background:white;border:1px solid var(--line);padding:8px 13px;border-radius:99px}.day{background:white;border:1px solid var(--line);border-radius:18px;margin:18px 0;overflow:hidden;box-shadow:0 5px 22px #0d4e5520}.dayhead{padding:18px 22px;background:var(--sky);display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.date{font-weight:800;font-size:1.35rem}.theme{color:var(--sea);font-weight:700}.stay{font-size:.9rem;color:var(--muted);text-align:right}.timeline{padding:10px 22px 20px}.row{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line)}.row:last-child{border:0}.time{font-weight:800;color:var(--coral)}.spot{font-weight:750}.desc{font-size:.93rem;color:var(--muted)}.links{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}.btn{display:inline-block;text-decoration:none;color:var(--sea);background:#eef9f8;border:1px solid #cce7e5;border-radius:8px;padding:4px 9px;font-size:.86rem}.btn.official{color:#8b4e11;background:#fff7e8;border-color:#f0dbb3}.choice{display:inline-block;background:#fff1ed;color:#a74432;border-radius:5px;padding:0 6px;font-size:.8rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:18px}.panel h2,.panel h3{margin-top:0}.good{color:#087459;font-weight:700}.warn{color:#b34b31;font-weight:700}table{width:100%;border-collapse:collapse;background:#fff}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--sea)}footer{text-align:center;color:var(--muted);font-size:.85rem;padding:30px}.small{font-size:.88rem;color:var(--muted)}@media(max-width:650px){.grid{grid-template-columns:1fr}.row{grid-template-columns:70px 1fr}.dayhead{display:block}.stay{text-align:left;margin-top:6px}header{padding-top:30px}}
 .recs{border-top:1px solid var(--line);background:#fbfdfc;padding:18px 22px 22px}.recs h3{margin:0 0 12px;color:var(--sea)}.recgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.rec{border:1px solid var(--line);background:white;border-radius:11px;padding:12px}.tag{display:inline-block;font-size:.75rem;font-weight:800;color:#fff;background:var(--sea);border-radius:99px;padding:2px 8px;margin-bottom:6px}.tag.market{background:#c57619}.tag.activity{background:#9c587e}.rec strong{display:block}.rec p{font-size:.84rem;color:var(--muted);margin:4px 0 7px}@media(max-width:650px){.recgrid{grid-template-columns:1fr}}
+.map-panel,.weather-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin:18px 0;box-shadow:0 5px 22px #0d4e5520}.map-panel h2,.weather-panel h2{margin:0 0 4px}.weather-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.weather-source{font-size:.78rem;color:var(--muted);white-space:nowrap}.weather-note{background:#eef9f8;border-radius:9px;padding:9px 12px;margin:12px 0;color:#41676e;font-size:.88rem}.weather-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.weather-card{background:#f7fbfb;border:1px solid var(--line);border-radius:11px;padding:11px;text-align:center}.weather-date{font-size:.84rem;font-weight:800;color:var(--sea)}.weather-icon{font-size:1.8rem;line-height:1.2;margin:3px}.weather-label{font-size:.84rem;min-height:2.6em}.weather-temp{font-weight:800}.weather-pop{font-size:.78rem;color:var(--muted)}.weather-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.weather-error{padding:18px;background:#fff7e8;border-radius:10px;color:#8b4e11}.map-legend{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 14px;font-size:.88rem;color:var(--muted)}.legend-dot{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:5px}.legend-hotel{background:#9c587e}.legend-spot{background:#087f8c}.legend-shop{background:#c57619}#okinawa-map{height:560px;border-radius:13px;border:1px solid var(--line);z-index:1}.map-pin{width:28px;height:28px;border:3px solid #fff;border-radius:50%;box-shadow:0 2px 7px #0005;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}.map-pin.hotel{background:#9c587e}.map-pin.spot{background:#087f8c}.map-pin.shop{background:#c57619}.map-popup strong{font-size:1rem}.map-popup .daylabel{color:#087f8c;font-weight:700}.map-popup a{display:inline-block;margin-top:6px;color:#087f8c;font-weight:700;text-decoration:none}@media(max-width:650px){#okinawa-map{height:480px}.map-panel,.weather-panel{padding:14px}.weather-head{display:block}.weather-source{white-space:normal}.weather-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head>
 <body><header><div class="hero"><div class="eyebrow">FAMILY TRIP · OKINAWA 2026</div><h1>沖繩，衝衝衝</h1><div class="summary">8/2（日）～8/7（五）｜約 15 人｜南部慢遊 → 北部海岸 → 中部購物 → 那霸返程</div><div class="chips"><span class="chip">自駕</span><span class="chip">親子</span><span class="chip">多代同遊</span><span class="chip">4 次換宿</span></div></div></header>
 <main>
 <div class="alert"><strong>建議版的核心調整：</strong>8/5 原本塞入水族館、萬座毛、美國村與宜野灣市場，對 15 人太趕。我把萬座毛移到 8/4 北上途中；8/5 主攻水族館，傍晚再回中部，保留體力也降低有人掉隊的風險。</div>
-<nav class="nav"><a href="#d1">8/2</a><a href="#d2">8/3</a><a href="#d3">8/4</a><a href="#d4">8/5</a><a href="#d5">8/6</a><a href="#d6">8/7</a><a href="#tips">重要建議</a></nav>
+<nav class="nav"><a href="#weather">即時天氣</a><a href="#tripmap">全程地圖</a><a href="#d1">8/2</a><a href="#d2">8/3</a><a href="#d3">8/4</a><a href="#d4">8/5</a><a href="#d5">8/6</a><a href="#d6">8/7</a><a href="#tips">重要建議</a></nav>
 <div class="alert"><strong>2026 沖繩購物折價券｜有效至 2026/10/31</strong><br>結帳前先開啟並出示券面；需符合免稅資格並攜帶護照。各店折扣率、最低消費與排除商品，以折價券及店家現場規定為準。<div class="links"><a class="btn official" href="https://www.facebook.com/61576598768577/posts/122171907656886625/" target="_blank">開啟／保存折價券</a></div></div>
+<section class="weather-panel" id="weather"><div class="weather-head"><div><h2>沖繩本島最新天氣</h2><p class="small" id="weather-status">正在讀取日本氣象廳最新預報⋯</p></div><div class="weather-source">資料來源：日本氣象廳（JMA）</div></div><div class="weather-note" id="weather-note">8/2–8/7 的逐日預報約在出發前一週陸續發布；本區塊每次開啟網頁都會重新讀取最新資料。</div><div class="weather-grid" id="weather-grid"><div class="weather-card">載入中⋯</div></div><div class="weather-actions"><a class="btn official" href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=471000" target="_blank">氣象廳沖繩預報</a><a class="btn official" href="https://www.jma.go.jp/bosai/warning/#area_type=offices&area_code=471000" target="_blank">警報／注意報</a><a class="btn official" href="https://www.jma.go.jp/bosai/map.html#contents=typhoon" target="_blank">颱風資訊</a></div></section>
+<section class="map-panel" id="tripmap"><h2>全程景點與住宿地圖</h2><p class="small">可縮放、拖曳並點選標記；按標記內的「Google 地圖」可查看即時路線。北部兩間民宿的位置以訂房資料為準。</p><div class="map-legend"><span><i class="legend-dot legend-hotel"></i>住宿</span><span><i class="legend-dot legend-spot"></i>景點</span><span><i class="legend-dot legend-shop"></i>購物／市場</span></div><div id="okinawa-map" aria-label="沖繩家族旅行景點與住宿互動地圖"></div></section>
 
 <section class="day" id="d1"><div class="dayhead"><div><div class="date">8/2（日）</div><div class="theme">抵達沖繩 · 南城入住</div></div><div class="stay">住：南城市玉城<br>Shikenbaru 171 附近民宿</div></div><div class="timeline">
 <div class="row"><div class="time">13:30–15:55</div><div><div class="spot">虎航抵達那霸</div><div class="desc">15 人入境、行李與集合，建議預留 60–90 分鐘。</div><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Naha+Airport" target="_blank">地圖</a></div></div></div>
@@ -72,4 +76,91 @@
 </div>
 <h2>住宿與移動摘要</h2><table><tr><th>日期</th><th>住宿</th><th>移動重點</th></tr><tr><td>8/2–8/3</td><td>南城市玉城民宿</td><td>抵達後南下；8/3 不換宿</td></tr><tr><td>8/4</td><td>今歸仁兩間住宿分住</td><td>南城→北中城→恩納→古宇利／今歸仁</td></tr><tr><td>8/5</td><td>The Grand Hotel Ginowan</td><td>美麗海→宜野灣漁市場→美國村</td></tr><tr><td>8/6</td><td>沖繩逸之彩溫泉度假飯店</td><td>浦添購物→還車→那霸步行／單軌</td></tr></table>
 <p class="small">營業時間與臨時休館可能受颱風、活動影響；本頁依 2026/7/17 可查到的官方資訊整理。Google 地圖連結採關鍵字搜尋，出發前請用訂房資料核對精確地址。</p></section>
-</main><footer>2026 Okinawa Family Trip · 更新日期 2026/7/17 · 版本 9（illusie300 已確認）</footer></body></html>
+</main><footer>2026 Okinawa Family Trip · 更新日期 2026/7/18 · 版本 11（JMA 天氣＋互動地圖）</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+  if(!window.L)return;
+  const map=L.map('okinawa-map',{scrollWheelZoom:false}).setView([26.39,127.82],9);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+  const places=[
+    {name:'那霸機場',day:'8/2・8/7',type:'spot',lat:26.2065,lng:127.6460,q:'Naha Airport'},
+    {name:'南城市玉城民宿',day:'8/2–8/3 住宿',type:'hotel',lat:26.1425,lng:127.7780,q:'Shikenbaru 171 Tamagusuku Nanjo Okinawa 901-0613'},
+    {name:'沖繩世界・玉泉洞',day:'8/3',type:'spot',lat:26.1384,lng:127.7495,q:'Okinawa World Gyokusendo'},
+    {name:'新原海灘',day:'8/3',type:'spot',lat:26.1327,lng:127.7934,q:'Mibaru Beach Okinawa'},
+    {name:'知念岬公園',day:'8/3',type:'spot',lat:26.1672,lng:127.8266,q:'Cape Chinen Park'},
+    {name:'Costco 沖繩南城',day:'8/3',type:'shop',lat:26.1556,lng:127.7872,q:'Costco Wholesale Okinawa Nanjo Warehouse'},
+    {name:'永旺夢樂城沖繩來客夢',day:'8/4',type:'shop',lat:26.3147,lng:127.7960,q:'AEON MALL Okinawa Rycom'},
+    {name:'萬座毛',day:'8/4',type:'spot',lat:26.5047,lng:127.8502,q:'Cape Manzamo'},
+    {name:'古宇利海灘／海洋塔',day:'8/4',type:'spot',lat:26.7015,lng:128.0165,q:'Kouri Ocean Tower'},
+    {name:'SUNZ STAY NAKIJIN',day:'8/4 住宿・9人',type:'hotel',lat:26.6825,lng:127.9700,q:'SUNZ STAY NAKIJIN'},
+    {name:'Pension Sunset Beach',day:'8/4 住宿・6人',type:'hotel',lat:26.6870,lng:127.9290,q:'Pension Sunset Beach 37 Imadomari Nakijin'},
+    {name:'沖繩美麗海水族館',day:'8/5',type:'spot',lat:26.6943,lng:127.8779,q:'Okinawa Churaumi Aquarium'},
+    {name:'宜野灣漁市場',day:'8/5',type:'shop',lat:26.2800,lng:127.7355,q:'Ginowan Fish Market Okinawa'},
+    {name:'The Grand Hotel Ginowan',day:'8/5 住宿',type:'hotel',lat:26.2872,lng:127.7478,q:'The Grand Hotel Ginowan 3-5-1 Oyama'},
+    {name:'美國村',day:'8/5 晚間',type:'spot',lat:26.3154,lng:127.7572,q:'American Village Okinawa'},
+    {name:'PARCO CITY',day:'8/6',type:'shop',lat:26.2634,lng:127.6975,q:'San-A Urasoe West Coast PARCO CITY'},
+    {name:'沖繩逸之彩溫泉度假飯店',day:'8/6 住宿',type:'hotel',lat:26.2185,lng:127.6953,q:'Okinawa Hinode Resort and Hot Spring Hotel'},
+    {name:'壺屋陶器街',day:'8/6',type:'shop',lat:26.2140,lng:127.6937,q:'Tsuboya Yachimun Street Naha'},
+    {name:'第一牧志公設市場／國際通',day:'8/6',type:'shop',lat:26.2149,lng:127.6908,q:'First Makishi Public Market'},
+    {name:'首里城公園',day:'8/7',type:'spot',lat:26.2170,lng:127.7195,q:'Shurijo Castle Park'}
+  ];
+  const bounds=[];
+  places.forEach((p,i)=>{
+    const icon=L.divIcon({className:'',html:'<div class="map-pin '+p.type+'">'+(i+1)+'</div>',iconSize:[28,28],iconAnchor:[14,14],popupAnchor:[0,-14]});
+    const url='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.q);
+    L.marker([p.lat,p.lng],{icon}).addTo(map).bindPopup('<div class="map-popup"><span class="daylabel">'+p.day+'</span><br><strong>'+p.name+'</strong><br><a href="'+url+'" target="_blank" rel="noopener">Google 地圖 ↗</a></div>');
+    bounds.push([p.lat,p.lng]);
+  });
+  map.fitBounds(bounds,{padding:[25,25]});
+})();
+</script>
+<script>
+(async function(){
+  const grid=document.getElementById('weather-grid');
+  const status=document.getElementById('weather-status');
+  const note=document.getElementById('weather-note');
+  const endpoint='https://www.jma.go.jp/bosai/forecast/data/forecast/471000.json';
+  const weatherInfo=(code)=>{
+    const c=String(code||'');
+    if(c.startsWith('1'))return{icon:'☀️',label:'晴或晴時多雲'};
+    if(c.startsWith('2'))return{icon:'☁️',label:'多雲'};
+    if(c.startsWith('3'))return{icon:'🌧️',label:'有雨'};
+    if(c.startsWith('4'))return{icon:'❄️',label:'雪'};
+    return{icon:'🌤️',label:'請查看官方預報'};
+  };
+  const value=(v,suffix='')=>(v===undefined||v===null||v==='')?'—':v+suffix;
+  try{
+    const response=await fetch(endpoint,{cache:'no-store'});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const data=await response.json();
+    const short=data[0];
+    const weekly=data[1]||data[0];
+    const weatherSeries=weekly.timeSeries.find(s=>s.areas&&s.areas.some(a=>Array.isArray(a.weatherCodes)));
+    const tempSeries=weekly.timeSeries.find(s=>s.areas&&s.areas.some(a=>Array.isArray(a.tempsMin)||Array.isArray(a.tempsMax)));
+    if(!weatherSeries)throw new Error('預報格式暫時無法辨識');
+    const area=weatherSeries.areas.find(a=>a.area&&a.area.name.includes('沖縄本島'))||weatherSeries.areas[0];
+    const tempArea=tempSeries&&(tempSeries.areas.find(a=>a.area&&a.area.name.includes('那覇'))||tempSeries.areas[0]);
+    const dates=weatherSeries.timeDefines;
+    const fmt=new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',weekday:'short'});
+    const updateFmt=new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false});
+    status.textContent='日本氣象廳發布：'+updateFmt.format(new Date(short.reportDatetime))+'（日本時間）｜預報區：沖繩本島地方';
+    grid.innerHTML=dates.map((d,i)=>{
+      const info=weatherInfo(area.weatherCodes&&area.weatherCodes[i]);
+      const min=tempArea&&tempArea.tempsMin?tempArea.tempsMin[i]:'';
+      const max=tempArea&&tempArea.tempsMax?tempArea.tempsMax[i]:'';
+      const pop=area.pops&&area.pops[i];
+      return '<article class="weather-card"><div class="weather-date">'+fmt.format(new Date(d))+'</div><div class="weather-icon">'+info.icon+'</div><div class="weather-label">'+info.label+'</div><div class="weather-temp">'+value(min,'°')+' / '+value(max,'°C')+'</div><div class="weather-pop">降雨機率 '+value(pop,'%')+'</div></article>';
+    }).join('');
+    const last=new Date(dates[dates.length-1]);
+    const tripStart=new Date('2026-08-02T00:00:00+09:00');
+    const tripEnd=new Date('2026-08-07T23:59:59+09:00');
+    if(last<tripStart)note.textContent='目前氣象廳的逐日預報尚未涵蓋 8/2–8/7；約出發前一週再開啟本頁，內容會自動更新。';
+    else if(last<tripEnd)note.textContent='目前已涵蓋部分旅遊日期；越接近出發日，後續日期會陸續加入。';
+    else note.textContent='目前預報已涵蓋完整旅遊期間；沖繩天氣變化快，請每天早晚再確認警報與颱風資訊。';
+  }catch(error){
+    status.textContent='暫時無法自動取得日本氣象廳資料';
+    grid.innerHTML='<div class="weather-error">請按下方「氣象廳沖繩預報」查看最新資料。網頁稍後重新整理時會再次嘗試載入。</div>';
+  }
+})();
+</script></body></html>
