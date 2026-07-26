@@ -537,6 +537,7 @@ window.tripInstagramTags={'okinawa-world':'おきなわワールド','mibaru':'�
   function mealChoices(dayId,mealName){
     return (mealPlanData[dayId]?.[mealName]||[]).filter(choice=>{
       const entry=foodEntries.get(choice.name);if(!entry)return false;
+      if(mealName==='宵夜場')return true;
       return !/(咖啡|甜點|冰品|茶屋)/.test(entry.kind);
     });
   }
