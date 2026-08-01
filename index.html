@@ -132,8 +132,8 @@ window.tripInstagramTags={'okinawa-world':'おきなわワールド','mibaru':'�
     {name:'永旺夢樂城沖繩來客夢',day:'8/4',type:'shop',lat:26.3147,lng:127.7960,q:'AEON MALL Okinawa Rycom',guide:'rycom'},
     {name:'萬座毛',day:'8/4',type:'spot',lat:26.5047,lng:127.8502,q:'Cape Manzamo',guide:'manzamo'},
     {name:'古宇利海灘／海洋塔',day:'8/4',type:'spot',lat:26.7015,lng:128.0165,q:'Kouri Ocean Tower',guide:'kouri'},
-    {name:'SUNZ STAY NAKIJIN',day:'8/4 住宿・9人',type:'hotel',lat:26.6825,lng:127.9700,q:'SUNZ STAY NAKIJIN'},
-    {name:'Pension Sunset Beach',day:'8/4 住宿・6人',type:'hotel',lat:26.6870,lng:127.9290,q:'Pension Sunset Beach 37 Imadomari Nakijin'},
+    {name:'SUNZ STAY NAKIJIN',day:'8/4 住宿・9人',type:'hotel',lat:26.7029,lng:127.9265,q:'SUNZ STAY NAKIJIN'},
+    {name:'Pension Sunset Beach',day:'8/4 住宿・6人',type:'hotel',lat:26.7035,lng:127.9263,q:'Pension Sunset Beach 37 Imadomari Nakijin'},
     {name:'沖繩美麗海水族館',day:'8/5',type:'spot',lat:26.6943,lng:127.8779,q:'Okinawa Churaumi Aquarium',guide:'churaumi'},
     {name:'宜野灣結市場',day:'8/5',type:'shop',lat:26.2800,lng:127.7355,q:'宜野湾ゆいマルシェ',url:'https://maps.app.goo.gl/u68zyAZfNSKcEi2h9',guide:'ginowan-market'},
     {name:'The Grand Hotel Ginowan',day:'8/5 住宿',type:'hotel',lat:26.2872,lng:127.7478,q:'The Grand Hotel Ginowan 3-5-1 Oyama'},
@@ -961,4 +961,5 @@ document.querySelectorAll('.rec').forEach(card=>{
 </script>
 <script>(()=>{const labels={'城間商店 那覇':'城間商店地圖'};document.querySelectorAll('a').forEach(a=>{const q=new URL(a.href,location.href).searchParams.get('query');if(q&&labels[q]){a.textContent=labels[q];a.title=labels[q]}})();</script>
 <script>(()=>document.querySelectorAll('a').forEach(a=>{if(a.textContent.trim().startsWith('地圖｜城間商店')){a.textContent='城間商店地圖';a.title='城間商店地圖'}}))();</script>
+<script>(()=>{const card=[...document.querySelectorAll('#konbini-dialog .route-ref-card')].find(x=>x.querySelector('h3')?.textContent.includes('8/4'));const p=card?.querySelector('p');if(p)p.innerHTML='<strong>LAWSON 今歸仁店</strong>、<strong>全家今歸仁仲尾次店</strong>皆為 24 小時，入住後補水、早餐最方便。需完整採買可到<strong>Town Plaza Kanehide 今歸仁櫻市場</strong>，一次補足熟食、食材與早餐。<br><span class="small">兩間住宿彼此僅 75 公尺／約 1 分鐘。櫻市場距兩間住宿約 4.4 公里／車程約 8 分鐘（Google Maps 路線）。</span>';const footer=document.querySelector('footer');if(footer)footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/1 · 版本 101（今歸仁住宿距離修正）';})();</script>
 </body></html>
