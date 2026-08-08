@@ -1012,4 +1012,28 @@ document.querySelectorAll('.rec').forEach(card=>{
   const footer=document.querySelector('footer'); if(footer) footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/8 · 版本 105（延宿與回程資訊整合）';
 })();
 </script>
+<script>
+(()=>{
+  const nav=document.querySelector('.nav');
+  if(nav && !nav.querySelector('a[href="#extension-plan"]')){
+    const link=document.createElement('a');link.href='#extension-plan';link.textContent='延宿繼續玩';
+    const anchor=nav.querySelector('a[href="#extension-stay"]');anchor?.insertAdjacentElement('afterend',link);
+  }
+  if(document.getElementById('extension-plan')) return;
+  const section=document.createElement('section');
+  section.className='panel';section.id='extension-plan';
+  section.innerHTML=`<h2>🌴 延宿繼續玩｜8/8–8/12</h2>
+    <p class="small">不趕行程：北谷三晚以海邊、散步與購物為主；下雨改室內購物。海邊活動以當日警報、海況與現場公告為準。</p>
+    <div class="route-ref-grid">
+      <article class="route-ref-card"><h3>8/8｜入住北谷・阿拉哈海灘日落</h3><p>逸之彩退房後前往 ARAHA STAY；安頓行李後只安排海灘散步與美國村看日落，晚餐就近選，不再跨區。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=ARAHA+STAY+Chatan+Okinawa" target="_blank" rel="noopener">ARAHA STAY Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Araha+Beach+Okinawa" target="_blank" rel="noopener">阿拉哈海灘 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=American+Village+Chatan+Okinawa" target="_blank" rel="noopener">美國村 Google Map</a></div></article>
+      <article class="route-ref-card"><h3>8/9｜北谷慢遊・宮城海岸／砂邊</h3><p>白天保留給休息、洗衣與海岸咖啡；傍晚再去宮城海岸、砂邊或美濱選一段散步。沒有租車時以短程計程車最順。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Miyagi+Coast+Chatan+Okinawa" target="_blank" rel="noopener">宮城海岸 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Sunabe+Baba+Park+Okinawa" target="_blank" rel="noopener">砂邊 Baba 公園 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Depot+Island+Chatan+Okinawa" target="_blank" rel="noopener">Depot Island Google Map</a></div></article>
+      <article class="route-ref-card"><h3>8/10｜天氣二選一</h3><p><strong>晴天：</strong>中城城跡或讀谷海岸，選一處搭計程車往返。<br><strong>雨天：</strong>永旺來客夢或 PARCO CITY，專心室內購物，不安排海灘。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Nakagusuku+Castle+Ruins+Okinawa" target="_blank" rel="noopener">中城城跡 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=AEON+MALL+Okinawa+Rycom" target="_blank" rel="noopener">永旺來客夢 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=San-A+Urasoe+West+Coast+PARCO+CITY" target="_blank" rel="noopener">PARCO CITY Google Map</a></div></article>
+      <article class="route-ref-card"><h3>8/11｜回那霸・國際通最後採買</h3><p>從 ARAHA STAY 移至格拉斯麗那霸酒店；寄放行李後走國際通、牧志市場與壺屋周邊。這天把伴手禮、藥妝與常溫食品一次補齊。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hotel+Gracery+Naha" target="_blank" rel="noopener">格拉斯麗 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Kokusai+dori+Naha" target="_blank" rel="noopener">國際通 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=First+Makishi+Public+Market" target="_blank" rel="noopener">第一牧志公設市場 Google Map</a></div></article>
+      <article class="route-ref-card"><h3>8/12｜回台日・只排上午</h3><p>16:55 FD231 回桃園 T1；上午在飯店附近簡單活動即可。建議最晚 12:45 從格拉斯麗出發，13:30 前抵達那霸機場處理報到、托運與出境。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Naha+Airport+International+Terminal" target="_blank" rel="noopener">那霸機場國際線 Google Map</a></div></article>
+    </div>`;
+  const flights=document.getElementById('flights');
+  flights?.insertAdjacentElement('afterend',section);
+  const footer=document.querySelector('footer');if(footer) footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/8 · 版本 106（延宿繼續玩安排）';
+})();
+</script>
 </body></html>
