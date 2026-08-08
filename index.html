@@ -967,4 +967,49 @@ document.querySelectorAll('.rec').forEach(card=>{
 <script>(()=>{const card=[...document.querySelectorAll('#konbini-dialog .route-ref-card')].find(x=>x.querySelector('h3')?.textContent.includes('8/4'));const p=card?.querySelector('p');if(p)p.innerHTML='<strong>LAWSON 今歸仁店</strong>、<strong>全家今歸仁仲尾次店</strong>皆為 24 小時，入住後補水、早餐最方便。需完整採買可到<strong>Town Plaza Kanehide 今歸仁櫻市場</strong>，一次補足熟食、食材與早餐。<br><span class="small">兩間住宿彼此僅 75 公尺／約 1 分鐘。櫻市場距兩間住宿約 4.4 公里／車程約 8 分鐘（Google Maps 路線）。</span>';const footer=document.querySelector('footer');if(footer)footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/1 · 版本 101（今歸仁住宿距離修正）';})();</script>
 <script>(()=>{const add=(text,label)=>{const row=[...document.querySelectorAll('#stay-summary tr')].find(r=>r.innerText.includes(text));const cell=row?.cells?.[1];if(!cell)return;const tag=document.createElement('div');tag.className='small';tag.style.marginTop='6px';tag.innerHTML=label;cell.append(tag)};add('SUNZ STAY NAKIJIN','🧺 <b>Pension Sunset Beach：</b>有洗衣機（SUNZ 本身待確認）');add('The Grand Hotel Ginowan','🧺 <b>4F／6F：</b>投幣洗衣機＋烘衣機');add('沖繩逸之彩','🧺 <b>2F：</b>洗衣機＋烘衣機（洗衣機 ¥300／次）');const footer=document.querySelector('footer');if(footer)footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/1 · 版本 102（洗衣設備標記）';})();</script>
 <script>(()=>{const data=[['8/2','南城玉城民宿',[['LAWSON 南城富里店','https://www.google.com/maps/search/?api=1&query=Lawson+Nanjo+Fusato','約 3.6 km'],['A-Coop 玉城店','https://www.google.com/maps/search/?api=1&query=A-Coop+Tamagusuku','約 4.1 km']]],['8/4','今歸仁兩間住宿',[['LAWSON 今歸仁店','https://www.google.com/maps/search/?api=1&query=Lawson+Nakijin','約 4.7 km'],['全家今歸仁仲尾次店','https://www.google.com/maps/search/?api=1&query=FamilyMart+Nakijin+Nakaoshi','約 4.0 km'],['Kanehide 今歸仁櫻市場','https://www.google.com/maps/search/?api=1&query=Town+Plaza+Kanehide+Nakijin+Sakura+Market','約 4.4 km']]],['8/5','The Grand Hotel Ginowan',[['LAWSON 宜野灣宇地泊店','https://www.google.com/maps/search/?api=1&query=Lawson+Ginowan+Uchidomari','約 0.4 km'],['全家 Bayside 宇地泊店','https://www.google.com/maps/search/?api=1&query=FamilyMart+Bayside+Uchidomari','約 0.5 km']]],['8/6','沖繩逸之彩溫泉度假飯店',[['LAWSON 那霸崇元寺通店','https://www.google.com/maps/search/?api=1&query=Lawson+Naha+Sogenji+dori','約 0.2 km'],['全家 國際通入口店','https://www.google.com/maps/search/?api=1&query=FamilyMart+Kokusai+dori+Entrance','約 0.6 km'],['7-ELEVEN 國際通店','https://www.google.com/maps/search/?api=1&query=7-Eleven+Kokusai+dori+Okinawa','約 0.6 km']]]];document.querySelector('#konbini-card .small')?.remove();const dialog=document.getElementById('konbini-dialog');dialog.querySelectorAll('.route-ref-card').forEach(card=>{const title=card.querySelector('h3')?.textContent||'';const entry=data.find(x=>title.includes(x[0]));if(!entry)return;card.querySelectorAll('p,.links').forEach(x=>x.remove());const links=document.createElement('div');links.className='links';entry[2].forEach(([name,url,distance])=>{const a=document.createElement('a');a.className='btn';a.href=url;a.target='_blank';a.rel='noopener';a.textContent=`${name} · ${distance}`;links.append(a)});card.append(links)});const footer=document.querySelector('footer');if(footer)footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/8 · 版本 104（颱風延宿更新）';})();</script>
+<script>
+(()=>{
+  document.body.dataset.build='62';
+  const summary=document.querySelector('.hero .summary');
+  if(summary) summary.textContent='8/2（日）～8/12（三）｜約 15 人｜8/7 航班取消・延宿後 8/12 回台';
+
+  const nav=[...document.querySelectorAll('.nav a')];
+  const cancelledNav=nav.find(a=>a.getAttribute('href')==='#d6');
+  if(cancelledNav) cancelledNav.textContent='8/7取消';
+
+  const flight=document.getElementById('flights');
+  if(flight) flight.innerHTML=`<h2>航班資訊</h2><div class="flight-grid">
+    <div class="flight-card"><div class="flight-date">8/2（日）去程</div><div class="flight-route">桃園 13:30 → 那霸 15:55</div><div class="flight-meta">AirAsia（泰國亞洲航空）FD230<br>桃園第一航廈 → 那霸國際線區</div><div class="flight-actions"><button type="button" class="btn guide-btn ufirst-open">桃園 U.First</button></div></div>
+    <div class="flight-card"><div class="flight-date">8/7（五）原訂回程</div><div class="flight-route">那霸 16:55 → 桃園 17:30</div><div class="flight-meta">AirAsia FD231・<strong>已取消</strong><br>請保留取消通知、原電子機票與申請替代航班失敗信件作為理賠資料。</div></div>
+    <div class="flight-card"><div class="flight-date">8/12（三）目前回程</div><div class="flight-route">那霸 16:55 → 桃園 17:30</div><div class="flight-meta">AirAsia（泰國亞洲航空）FD231<br>那霸國際線區 → 桃園第一航廈</div><div class="flight-actions"><button type="button" class="btn guide-btn oka-ufirst-open">那霸 U.First</button></div></div>
+  </div><p class="small">時間皆為當地時間；日本比台灣快 1 小時。請以最新電子機票／登機證與當日機場看板為準。</p>`;
+
+  const extension=document.getElementById('extension-stay');
+  if(extension) extension.innerHTML=`<h2>✈️ 颱風延宿更新</h2><p><strong>已確認：</strong>8/7 FD231 取消；逸之彩延住至 8/8。8/8–8/11 住 ARAHA STAY，8/11–8/12 回那霸住格拉斯麗那霸酒店；目前回程為 8/12 FD231。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=ARAHA+STAY+Chatan+Okinawa" target="_blank" rel="noopener">ARAHA STAY Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hotel+Gracery+Naha" target="_blank" rel="noopener">格拉斯麗 Google Map</a></div>`;
+
+  const day6=document.getElementById('d6');
+  if(day6){
+    const date=day6.querySelector('.date'); if(date) date.textContent='8/7（五）｜原訂回程取消';
+    const theme=day6.querySelector('.theme'); if(theme) theme.textContent='航班取消・延宿處理';
+    const timeline=day6.querySelector('.timeline');
+    if(timeline && !timeline.querySelector('.cancellation-note')){
+      const note=document.createElement('div'); note.className='row cancellation-note';
+      note.innerHTML='<div class="time">狀態</div><div><div class="spot">FD231 已取消</div><div class="desc">本區保留原訂行程作參考，不再作為當日安排。請保留取消通知、原訂位與新電子機票，延宿期間依住宿與最新天氣彈性安排。</div></div>';
+      timeline.prepend(note);
+    }
+  }
+
+  const dialog=document.getElementById('konbini-dialog');
+  const grid=dialog?.querySelector('.route-ref-grid');
+  const addSupply=(title,links)=>{ if(!grid || [...grid.querySelectorAll('h3')].some(h=>h.textContent===title))return; const article=document.createElement('article');article.className='route-ref-card';article.innerHTML='<h3>'+title+'</h3><div class="links">'+links.map(([name,url])=>'<a class="btn" href="'+url+'" target="_blank" rel="noopener">'+name+' Google Map</a>').join('')+'</div>';grid.append(article); };
+  addSupply('8/8–8/11｜ARAHA STAY', [['全家 北谷阿拉哈海灘前店','https://www.google.com/maps/search/?api=1&query=FamilyMart+Chatan+Araha+Beach'],['LAWSON 北谷町役場前店','https://www.google.com/maps/search/?api=1&query=Lawson+Chatan+Town+Office']]);
+  addSupply('8/11–8/12｜格拉斯麗那霸酒店', [['全家 國際通中央店','https://www.google.com/maps/search/?api=1&query=FamilyMart+Kokusai+dori+Central+Naha'],['7-ELEVEN 那霸國際通店','https://www.google.com/maps/search/?api=1&query=7-Eleven+Naha+Kokusai+dori']]);
+
+  const mapHeading=document.querySelector('#tripmap h2'); if(mapHeading) mapHeading.textContent='原訂 6 日景點與住宿地圖';
+  const mapNote=document.querySelector('#tripmap .small'); if(mapNote) mapNote.textContent='此地圖為原訂 8/2–8/7 行程位置；8/8 後延宿住宿請使用上方「延宿」與「住宿補給」連結。';
+  const modalKicker=document.querySelector('#route-modal .modal-kicker'); if(modalKicker) modalKicker.textContent='OKINAWA · 原訂 6 日行程';
+  const modalTitle=document.getElementById('route-title'); if(modalTitle) modalTitle.textContent='沖繩，衝衝衝｜原訂旅程動畫';
+  const footer=document.querySelector('footer'); if(footer) footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/8 · 版本 105（延宿與回程資訊整合）';
+})();
+</script>
 </body></html>
