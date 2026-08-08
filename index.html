@@ -1036,4 +1036,18 @@ document.querySelectorAll('.rec').forEach(card=>{
   const footer=document.querySelector('footer');if(footer) footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/8 · 版本 106（延宿繼續玩安排）';
 })();
 </script>
+<script>
+(()=>{
+  const plan=document.getElementById('extension-plan');
+  if(!plan) return;
+  const lead=plan.querySelector('.small');
+  if(lead) lead.textContent='8/8–8/11 有租車：以中部西海岸與東海岸兩條自駕線為主；8/11 還車後再回那霸。海邊活動仍以當日警報、海況與現場公告為準。';
+  const cards=[...plan.querySelectorAll('.route-ref-card')];
+  if(cards[0]) cards[0].innerHTML='<h3>8/8｜取車・入住北谷・阿拉哈海灘日落</h3><p>取車後前往 ARAHA STAY，安頓行李後走阿拉哈海灘與美國村看日落；第一天不跑遠，留體力給隔天自駕。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=ARAHA+STAY+Chatan+Okinawa" target="_blank" rel="noopener">ARAHA STAY Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Araha+Beach+Okinawa" target="_blank" rel="noopener">阿拉哈海灘 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=American+Village+Chatan+Okinawa" target="_blank" rel="noopener">美國村 Google Map</a></div>';
+  if(cards[1]) cards[1].innerHTML='<h3>8/9｜西海岸自駕・讀谷陶器／座喜味城／殘波岬</h3><p>讀谷一日線：やちむん之里看陶器 → 座喜味城跡看海景 → 殘波岬日落。三站都在中部西岸，可依天氣少選一站；陶器易碎，先買小件、晚回住宿再整理。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Yachimun+no+Sato+Yomitan" target="_blank" rel="noopener">讀谷やちむん之里 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Zakimi+Castle+Ruins+Okinawa" target="_blank" rel="noopener">座喜味城跡 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cape+Zanpa+Okinawa" target="_blank" rel="noopener">殘波岬 Google Map</a></div>';
+  if(cards[2]) cards[2].innerHTML='<h3>8/10｜東海岸自駕・勝連城跡／海中道路</h3><p>東海岸一日線：勝連城跡 → 海中道路 → 濱比嘉島或宮城島擇一。海中道路約 5 公里，適合有車慢慢看海；若風雨仍強，改走來客夢或 PARCO CITY 室內購物。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Katsuren+Castle+Ruins+Okinawa" target="_blank" rel="noopener">勝連城跡 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Kaichu+Road+Okinawa" target="_blank" rel="noopener">海中道路 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Miyagi+Island+Okinawa" target="_blank" rel="noopener">宮城島 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=AEON+MALL+Okinawa+Rycom" target="_blank" rel="noopener">雨天：永旺來客夢 Google Map</a></div>';
+  if(cards[3]) cards[3].innerHTML='<h3>8/11｜還車・回那霸・國際通最後採買</h3><p>從 ARAHA STAY 出發，先完成加油與還車，再移至格拉斯麗那霸酒店。寄放行李後走國際通、牧志市場與壺屋周邊；這天集中買伴手禮、藥妝與常溫食品。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hotel+Gracery+Naha" target="_blank" rel="noopener">格拉斯麗 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Kokusai+dori+Naha" target="_blank" rel="noopener">國際通 Google Map</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=First+Makishi+Public+Market" target="_blank" rel="noopener">第一牧志公設市場 Google Map</a></div>';
+  const footer=document.querySelector('footer');if(footer) footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/8 · 版本 107（延宿自駕版）';
+})();
+</script>
 </body></html>
