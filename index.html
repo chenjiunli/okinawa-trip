@@ -1050,4 +1050,47 @@ document.querySelectorAll('.rec').forEach(card=>{
   const footer=document.querySelector('footer');if(footer) footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/8 · 版本 107（延宿自駕版）';
 })();
 </script>
+<script>
+(()=>{
+  const makeLink=(name,url)=>`<a class="btn" href="${url}" target="_blank" rel="noopener">${name} Google Map</a>`;
+  const dayHtml=(id,date,theme,stay,rows)=>`<section class="day extension-day" id="${id}"><div class="dayhead"><div><div class="date-line"><div class="date">${date}</div></div><div class="theme">${theme}</div></div><div class="stay">${stay}</div></div><div class="timeline">${rows.map(([when,title,desc,links])=>`<div class="row"><div class="time">${when}</div><div><div class="spot">${title}</div><div class="desc">${desc}</div><div class="links">${links}</div></div></div>`).join('')}</div></section>`;
+  const oldDays=document.getElementById('extension-days');if(oldDays) oldDays.remove();
+  const days=document.createElement('div');days.id='extension-days';
+  days.innerHTML=[
+    dayHtml('d8','8/8（六）','取車・北谷入住・海邊日落','住：ARAHA STAY',[
+      ['取車後','前往 ARAHA STAY','先確認行李、停車與隔天出發時間；不把第一天排滿。',makeLink('ARAHA STAY','https://www.google.com/maps/search/?api=1&query=ARAHA+STAY+Chatan+Okinawa')],
+      ['傍晚','阿拉哈海灘','散步、看海與放鬆為主；游泳與水上活動依現場海況、警報判斷。',makeLink('阿拉哈海灘','https://www.google.com/maps/search/?api=1&query=Araha+Beach+Okinawa')],
+      ['晚餐／夜景','美國村・Depot Island','日落後再走美濱商圈；餐廳現場挑選，不必全團等位。',makeLink('美國村','https://www.google.com/maps/search/?api=1&query=American+Village+Chatan+Okinawa')]
+    ]),
+    dayHtml('d9','8/9（日）','讀谷西海岸・陶器・城跡・日落','住：ARAHA STAY',[
+      ['上午','讀谷やちむん之里','陶器店與登窯慢逛；易碎品先買小件、晚回住宿再整理。',makeLink('讀谷やちむん之里','https://www.google.com/maps/search/?api=1&query=Yachimun+no+Sato+Yomitan')],
+      ['下午','座喜味城跡','短程走城牆與高處海景；炎熱或下雨可縮短成拍照停留。',makeLink('座喜味城跡','https://www.google.com/maps/search/?api=1&query=Zakimi+Castle+Ruins+Okinawa')],
+      ['傍晚','殘波岬','白色燈塔、海蝕崖與日落；風浪大時只在安全區拍照，不走海邊。',makeLink('殘波岬','https://www.google.com/maps/search/?api=1&query=Cape+Zanpa+Okinawa')]
+    ]),
+    dayHtml('d10','8/10（一）','東海岸自駕・勝連城跡・海中道路','住：ARAHA STAY',[
+      ['上午','勝連城跡','琉球城跡與高處海景；坡道曝曬，補水並穿止滑鞋。',makeLink('勝連城跡','https://www.google.com/maps/search/?api=1&query=Katsuren+Castle+Ruins+Okinawa')],
+      ['午後','海中道路','自駕穿越海上的道路，沿線停車看海；不要趕著把所有離島走完。',makeLink('海中道路','https://www.google.com/maps/search/?api=1&query=Kaichu+Road+Okinawa')],
+      ['選一島','濱比嘉島／宮城島','天氣穩定再選一座島慢遊；若風雨不佳，直接改永旺來客夢室內購物。',makeLink('宮城島','https://www.google.com/maps/search/?api=1&query=Miyagi+Island+Okinawa')+makeLink('雨天永旺來客夢','https://www.google.com/maps/search/?api=1&query=AEON+MALL+Okinawa+Rycom')]
+    ]),
+    dayHtml('d11','8/11（二）','還車・回那霸・國際通採買','住：格拉斯麗那霸酒店',[
+      ['上午','ARAHA STAY 退房・加油・還車','預留加油、車況確認與還車接駁時間；還車後移往那霸。',makeLink('格拉斯麗那霸酒店','https://www.google.com/maps/search/?api=1&query=Hotel+Gracery+Naha')],
+      ['午後','格拉斯麗寄放行李／入住','先安放行李，再步行逛市區；以不提大包小包為原則。',makeLink('國際通','https://www.google.com/maps/search/?api=1&query=Kokusai+dori+Naha')],
+      ['晚間','牧志市場・壺屋周邊','最後採買海鹽、黑糖、紅芋點心與藥妝；陶器要確認托運包裝。',makeLink('第一牧志公設市場','https://www.google.com/maps/search/?api=1&query=First+Makishi+Public+Market')+makeLink('壺屋陶器街','https://www.google.com/maps/search/?api=1&query=Tsuboya+Yachimun+Street+Naha')]
+    ]),
+    dayHtml('d12','8/12（三）','回台日・那霸 → 桃園','航班：FD231 16:55 → 17:30（桃園 T1）',[
+      ['上午','飯店退房／國際通附近簡單散步','只安排飯店周邊與不需排隊的早餐、補買；不再跑遠。',makeLink('格拉斯麗那霸酒店','https://www.google.com/maps/search/?api=1&query=Hotel+Gracery+Naha')],
+      ['12:45','前往那霸機場','建議此時從飯店出發，保留交通、托運與國際線報到緩衝。',makeLink('那霸機場國際線','https://www.google.com/maps/search/?api=1&query=Naha+Airport+International+Terminal')],
+      ['16:55','AirAsia FD231 回桃園','請以最新電子機票與當日機場看板為準；登機前再確認登機門。','']
+    ])
+  ].join('');
+  const d6=document.getElementById('d6');d6?.insertAdjacentElement('afterend',days);
+  const overview=document.getElementById('extension-plan');
+  if(overview) overview.innerHTML='<h2>✈️ 延宿行程總覽</h2><p class="small">8/8–8/11 租車自駕、8/11 還車回那霸；以下已依日期拆成每日行程。海邊與長距離路線一律看當日警報、海況與道路狀況調整。</p>';
+  const nav=document.querySelector('.nav');
+  if(nav){
+    ['d8','d9','d10','d11','d12'].forEach((id,i)=>{if(nav.querySelector(`a[href="#${id}"]`))return;const a=document.createElement('a');a.href='#'+id;a.textContent='8/'+(8+i);nav.append(a)});
+  }
+  const footer=document.querySelector('footer');if(footer) footer.firstChild.textContent='2026 Okinawa Family Trip · 更新日期 2026/8/8 · 版本 108（延宿每日行程）';
+})();
+</script>
 </body></html>
